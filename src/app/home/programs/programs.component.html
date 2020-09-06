@@ -1,0 +1,59 @@
+<div class="container-fluid py-4 programsView">
+    <div class="row">
+        <div class="col-md-2 col-lg-2 col-sm-12 col-12 filterView">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Filter</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Launch Year</h6>
+                    <div class="col-md-6 col-lg-6 col-sm-6 col-6" *ngFor="let year of years">
+                        <button type="button" class="badge badge-secondary" (click)="onSelectYear(year)">
+                            {{year}}
+                        </button>
+                    </div>
+                    <h6 class="card-subtitle my-2 text-muted">Successful Launch</h6>
+                    <div class="col-md-6 col-lg-6 col-sm-6 col-6" *ngFor="let launch of launches">
+                        <button type="button" class="badge badge-secondary" (click)="onSelectLaunch(launch)">
+                            {{launch}}
+                        </button>
+                    </div>
+                    <h6 class="card-subtitle my-2 text-muted">Successful Landing</h6>
+                    <div class="col-md-6 col-lg-6 col-sm-6 col-6" *ngFor="let launch of launches">
+                        <button type="button" class="badge badge-secondary" (click)="onSelectLand(launch)">
+                            {{launch}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="loading" class="spinners col-md-10 col-lg-10 col-sm-12 col-12">
+            <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div class="col-md-10 col-lg-10 col-sm-12 col-12 programView" *ngIf="!loading && data.length != 0">
+            <div class="col-md-3 col-lg-3 col-sm-12 col-12" *ngFor="let d of data">
+                <div class="card">
+                    <div class="imageView">
+                        <img src="{{d.links.mission_patch}}" class="card-img-top" alt="image of {{d.mission_name}}">
+                    </div>
+                    <div class="card-body">
+                        <h6 class="title">{{ d.mission_name }} #{{ d.flight_number }}</h6>
+                        <div class="sub-title">Mission Ids:
+                            <span class="sub-value">{{ d.mission_id[0] }}</span></div>
+                        <div class="sub-title">Launch Year:
+                            <span class="sub-value">{{ d.launch_year }}</span></div>
+                        <div class="sub-title">Successful Launch:
+                            <span class="sub-value">{{ d.launch_success }}</span>
+                        </div>
+                        <div class="sub-title">Successful Landing:
+                            <span class="sub-value">{{ d.land_success }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 col-lg-10 col-sm-12 col-12 noDataView" *ngIf="data.length == 0 && !loading">
+            <h1>NO LAUNCH PROGRAM TO SHOW</h1>
+        </div>
+    </div>
+</div>

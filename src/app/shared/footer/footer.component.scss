@@ -1,0 +1,13 @@
+@import '../../../assets/variables/partials';
+
+.footerView {
+    background: $background-color;
+    margin-bottom: 0;
+    padding: 0.5rem 0;
+    text-align: center;
+    span {
+        font-weight: 400;
+        color: $gray-color;
+        font-size: 18px;
+    }
+}

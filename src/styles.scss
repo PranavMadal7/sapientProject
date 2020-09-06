@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+
+// import of style dependecies
+@import './assets/variables/partials';
+
+.card {
+    color: $black-color;
+}
