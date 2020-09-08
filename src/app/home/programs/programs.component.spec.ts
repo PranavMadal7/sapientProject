@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProgramsComponent } from './programs.component';
+import { ApiService } from 'src/app/services/api.service';
+import { of } from 'rxjs';
 
 describe('ProgramsComponent', () => {
   let component: ProgramsComponent;
@@ -8,7 +10,10 @@ describe('ProgramsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProgramsComponent ]
+      declarations: [ ProgramsComponent ],
+      providers: [
+        {provide: ApiService, useClass: ApiServiceStub}
+      ]
     })
     .compileComponents();
   }));
@@ -23,3 +28,9 @@ describe('ProgramsComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+class ApiServiceStub {
+  getAllPrograms(){ 
+    return of([]);
+  }
+}

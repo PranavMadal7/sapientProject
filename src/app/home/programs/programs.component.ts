@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 // import of services
 import { ApiService } from 'src/app/services/api.service';
-import { Key } from 'protractor';
 
 @Component({
   selector: 'app-programs',
@@ -22,7 +22,7 @@ export class ProgramsComponent implements OnInit {
   launch: boolean;
   loading: boolean = false;
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private router: Router) { }
 
   ngOnInit(): void {
     this.loading = true;
@@ -31,6 +31,9 @@ export class ProgramsComponent implements OnInit {
         this.data = res.map(val => {
           if (val.mission_id.length == 0) {
             val.mission_id[0] = 'NA';
+          }
+          if (val.rocket.first_stage.cores[0].land_success == null) {
+            val.rocket.first_stage.cores[0].land_success = 'NA';
           }
           return val;
         });
