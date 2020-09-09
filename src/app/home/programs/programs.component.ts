@@ -22,7 +22,7 @@ export class ProgramsComponent implements OnInit {
   launch: boolean;
   loading: boolean = false;
 
-  constructor(private apiService: ApiService, private router: Router) { }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.loading = true;

@@ -13,7 +13,9 @@ const appRoutes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes, {
+    initialNavigation: 'enabled'
+})
   ],
   exports: [RouterModule]
 })

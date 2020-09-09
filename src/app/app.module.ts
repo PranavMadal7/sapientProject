@@ -15,7 +15,7 @@ import { RoutingModule } from './routing/routing.module';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,
     HomeModule,
     SharedModule,
