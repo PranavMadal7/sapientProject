@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "heroku-postbuild": "ng build --prod && ng run sapientProject:server:production",
+    "start": "node dist/sapientProject/server/main.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -13,10 +14,16 @@
     "build:ssr": "ng build --prod && ng run sapientProject:server:production",
     "prerender": "ng run sapientProject:prerender"
   },
+  "engines": {
+    "node": "12.4.0",
+    "npm": "6.9.0"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~9.1.3",
     "@angular/common": "~9.1.3",
+    "@angular/cli": "~9.1.3",
+    "@angular/compiler-cli": "~9.1.3",
     "@angular/compiler": "~9.1.3",
     "@angular/core": "~9.1.3",
     "@angular/forms": "~9.1.3",
@@ -31,7 +38,8 @@
     "popper.js": "^1.16.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "typescript": "~3.8.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.3",
