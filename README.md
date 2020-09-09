@@ -1,6 +1,10 @@
 # sapientProject
 For assignment of sapient company
 
+Prerequisite:-
+1. Need to have node.js installed in the system.
+2. IDE: VS code or any Ides
+
 Set up of application:-
 1. Install angular:- npm install -g @angular/cli
 2. If it is first time installation of project for frontend then do:- npm install
